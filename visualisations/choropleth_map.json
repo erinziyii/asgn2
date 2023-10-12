@@ -12,16 +12,16 @@
       },
       "transform": [
         {
-          "lookup": "properties.NAME_EN",
+          "lookup": "properties.NAME",
           "from": {
             "data": {
               "url": "https://raw.githubusercontent.com/erinziyii/asgn2/main/data/world-happiness-report-2015-2022-cleaned.csv"
             },
             "key": "Country",
-            "fields": ["Happiness Score"]
+            "fields": ["Score"]
           }
         },
-        {"calculate": "datum['Happiness Score']", "as": "Happiness Score"}
+        {"calculate": "datum['Score']", "as": "Happiness Score"}
       ],
       "layer": [
         {
@@ -34,7 +34,7 @@
             "color": {
               "field": "Happiness Score",
               "type": "quantitative",
-              "scale": {"scheme": "oranges", "type": "log"},
+              "scale": {"scheme": "reds", "type": "log"},
               "title": "Happiness Score %"
             },
             "tooltip": [
