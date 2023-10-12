@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "view": {"stroke": "transparent"},
+  "repeat": {
+    "row": ["Score"],
+    "column": ["Health (Life Expectancy)", "Family", "Economy"]
+  },
+  "spec": {
+    "height": 270,
+    "width": 270,
+    "data": {
+      "url": "https://raw.githubusercontent.com/erinziyii/asgn2/main/data/world-happiness-report-2015-2022-cleaned.csv"
+    },
+    "mark": {"type": "point", "filled": true},
+    "params": [
+      {"name": "paintbrush", "select": {"type": "point", "on": "mouseover"}}
+    ],
+    "encoding": {
+      "x": {"field": {"repeat": "column"}, "type": "quantitative"},
+      "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "continent", "type": "nominal", "title": "Continent"},
+        {"field": "Year", "type": "ordinal"},
+        {
+          "field": {"repeat": "row"},
+          "type": "quantitative",
+          "title": "Happiness Score",
+          "format": ".2f"
+        },
+        {"field": {"repeat": "column"}, "type": "quantitative", "format": ".2f"}
+      ],
+      "y": {
+        "field": {"repeat": "row"},
+        "type": "quantitative",
+        "axis": {"minExtent": 45}
+      },
+      "color": {
+        "condition": {
+          "legend": null,
+          "field": "continent",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Asia",
+              "Africa",
+              "Oceania"
+            ],
+            "range": [
+              "#e45756",
+              "#4c78a8",
+              "#940be3",
+              "#f58518",
+              "#54a24b",
+              "#000000"
+            ]
+          },
+          "param": "paintbrush",
+          "type": "nominal"
+        },
+        "value": "grey"
+      }
+    }
+  },
+  "config": {}
+}
