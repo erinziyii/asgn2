@@ -3,6 +3,7 @@
   "width": 800,
   "height": 450,
   "projection": {"type": "equalEarth"},
+  "background": "#F2F2DB",
   "view": {"fill": null, "stroke": "transparent"},
   "layer": [
     {"data": {"values": [{}]}, "mark": {"type": "rect", "color": "lightblue"}},
