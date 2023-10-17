@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart",
+  "height": 350,
+  "width": 850,
+  "background": "#F2F2DB",
+  "data": {
+    "url": "https://raw.githubusercontent.com/erinziyii/asgn2/main/data/world-happiness-report-2015-2022-cleaned.csv"
+  },
+  "transform": [
+    {
+      "sort": [{"field": "Rank", "order": "descending"}],
+      "window": [{"op": "rank", "as": "rank"}],
+      "groupby": ["Year"]
+    },
+    {"filter": "datum.Rank <= 10"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "orient": "vertical", "point": true},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {
+          "field": "Rank",
+          "type": "quantitative",
+          "scale": {"domain": [1, 11]},
+          "sort": "descending"
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#1F77B4",
+              "#2CA02C",
+              "#D62728",
+              "#FF7F0E",
+              "#9467BD",
+              "#8C564B",
+              "#E377C2",
+              "#7F7F7F",
+              "#BCBD22",
+              "#17BECF",
+              "#34495E",
+              "#6C3483",
+              "#229954"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Rank", "type": "quantitative"},
+          {"field": "Year", "type": "ordinal"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "baseline": "middle", "align": "left", "dx": 10},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Rank", "type": "quantitative"},
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"field": "Country"},
+        "opacity": {
+          "condition": {"test": "datum.Year == 2022", "value": 1},
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {}
+}
