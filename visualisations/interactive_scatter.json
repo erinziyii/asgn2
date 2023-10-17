@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Dot plot for the happiness factors: Generoisty, Government Trust, and freedom",
   "view": {"stroke": "transparent"},
+  "background": "#F2F2DB",
   "repeat": {
     "row": ["Score"],
     "column": ["Generosity", "Government Trust", "Freedom"]
@@ -14,7 +14,7 @@
     },
     "mark": {"type": "point", "filled": true},
     "params": [
-      {"name": "paintbrush", "select": {"type": "point", "on": "mouseover"}}
+      {"name": "highlight", "select": {"type": "point", "on": "mouseover"}}
     ],
     "encoding": {
       "x": {"field": {"repeat": "column"}, "type": "quantitative"},
@@ -24,7 +24,7 @@
         "axis": {"minExtent": 45}
       },
       "tooltip": [
-        {"field": "Country:", "type": "nominal"},
+        {"field": "Country", "type": "nominal"},
         {"field": "continent", "type": "nominal", "title": "Continent:"},
         {"field": "Year", "type": "ordinal"},
         {
@@ -48,15 +48,15 @@
               "Oceania"
             ],
             "range": [
-              "#e45756",
-              "#4c78a8",
-              "#940be3",
-              "#f58518",
-              "#54a24b",
-              "#000000"
+              "#1f77b4",
+              "#ff7f0e",
+              "#2ca02c",
+              "#d62728",
+              "#9467bd",
+              "#8c564b"
             ]
           },
-          "param": "paintbrush",
+          "param": "highlight",
           "type": "nominal"
         },
         "value": "grey"
