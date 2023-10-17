@@ -65,12 +65,10 @@
       <div class="pure-u-1 text-center">
         <div class="description description-center" style="text-align: center; max-width: 800px; margin: 0 auto;">
           <h2 style="background-color: #d7dbac; padding: 10px;">Happiness Factors</h2>
-          <p> The 6 factors which affect the happiness scores of each country include: health, family, economy, generosity, government trust, and freedom. Overall, we can observe from the scatter plots below that countries in Europe(green), Oceania(brown), and North America(blue) have a higher happiness score as compared to South America(orange), Asia(red), and especially Africa(purple) which is placed the lowest in happiness</p>
+          <p> The 6 factors which affect the happiness scores of each country include: health, family, economy, generosity, government trust, and freedom. Overall, we can observe from the scatter plots below that countries in Europe(green), Oceania(brown), and North America(blue) have a higher happiness score as compared to South America(orange), Asia(red), and especially Africa(purple) which is placed the lowest in happiness.</p>
         </div>
       </div>
-      <div class="pure-u-1-3">
-        <div id="vis4" class="vis-container"></div>
-      </div>
+
       <div class="pure-u-1 text-center">
         <div id="vis3" class="vis-container"></div>
       </div>
@@ -84,10 +82,13 @@
         <div id="vis2" class="vis-container"></div>
       </div>
       <div class="pure-u-1 text-center">
-        <div class="description description-center">
-          <h2>Top 10 Happiest Countries</h2>
-          <p> (to be continued) </p>
+        <div class="description description-center" style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2 style="background-color: #d7dbac; padding: 10px;">Top 10 Happiest Countries</h2>
+          <p> Observing the bump chart below, throughout the years 2015-2022, Finland is ranked first as the happiest country in the world. Moreover, the countries which hold the top 10 rankings are mainly from Europe and Oceania. However, Israel can be observed to climb to rank 9 in 2022, making Israel the first Asian country to reach top 10.  </p>
         </div>
+      </div>
+      <div class="pure-u-1 text-center">
+        <div id="vis4" class="vis-container"></div>
       </div>
 
     </div>
@@ -106,6 +107,7 @@
     var specVis1 = "https://raw.githubusercontent.com/erinziyii/asgn2/main/visualisations/choropleth_map.json";
     var specVis2 = "https://raw.githubusercontent.com/erinziyii/asgn2/main/visualisations/interactive_scatter.json";
     var specVis3 = "https://raw.githubusercontent.com/erinziyii/asgn2/main/visualisations/interactive_scatter2.json";
+    var specVis4 = "https://raw.githubusercontent.com/erinziyii/asgn2/main/visualisations/bump_chart.json"
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -114,6 +116,10 @@
     }).catch(console.error);
 
     vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
